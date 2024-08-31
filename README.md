@@ -1,21 +1,47 @@
-MIT License
+# DynamicIcon
 
-Copyright (c) 2024 Guillaume Coquard
+Swift API to change application icon without any limit nor having a dialog presented.  
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This uses Apple private APIs. It did not trigger App Store rejection for me but, do tell it if it does for you.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Install
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+### Recommended
+
+Copy [DynamicIcon.swift](https://github.com/g-cqd/DynamicIcon/blob/main/Sources/DynamicIcon/DynamicIcon.swift) to your project.
+
+### SPM
+
+To add a package dependency to your Xcode project, select File > Add Package and enter this repository's URL (<https://github.com/g-cqd/DynamicIcon>).
+
+## Example
+
+First, create AppIcon iconsets in your assets and use their names in the code below.
+You can reset the icon to the original one by passing `nil` as argument of the method.
+
+```swift
+import SwiftUI
+import DynamicIcon
+
+struct ContentView: View {
+    
+    enum Icons: String {
+        case blue = "AppIcon1"
+        case red = "AppIcon2"
+    }
+    
+    var body: some View {
+        VStack {
+            Button("Set Icon to Blue") {
+                DynamicIcon.setAlternateIconName(Icons.blue)
+            }
+            Button("Set Icon to Red") {
+                DynamicIcon.setAlternateIconName(Icons.red)
+            }
+            Button("Reset") {
+                DynamicIcon.setAlternateIconName(nil)
+            }
+        }
+    }
+}
+```
