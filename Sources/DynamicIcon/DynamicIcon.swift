@@ -21,6 +21,7 @@ open class DynamicIcon {
     /// Changes the application icon with no limit of any kind
     /// - Parameter name: Name of the applicatin saved in your Assets.xcassets.
     /// - Returns: `true` if icon has been changed.
+    @discardableResult
     public static func setAlternateIconName(_ name: String? = nil) -> Bool {
 
         guard UIApplication.shared.supportsAlternateIcons else { return false }
