@@ -25,9 +25,9 @@ import DynamicIcon
 
 struct ContentView: View {
     
-    enum Icons: String {
-        case blue = "AppIcon1"
-        case red = "AppIcon2"
+    struct Icons {
+        static var blue = "AppIcon1"
+        static var red = "AppIcon2"
     }
     
     var body: some View {

@@ -14,14 +14,14 @@ open class DynamicIcon {
     }
 
     /// Exposes this as a shortcut through the package
-    static var supportsAlternateIcons: Bool {
+    public static var supportsAlternateIcons: Bool {
         UIApplication.shared.supportsAlternateIcons
     }
 
     /// Changes the application icon with no limit of any kind
     /// - Parameter name: Name of the applicatin saved in your Assets.xcassets.
     /// - Returns: `true` if icon has been changed.
-    static func setAlternateIconName(_ name: String? = nil) -> Bool {
+    public static func setAlternateIconName(_ name: String? = nil) -> Bool {
 
         guard UIApplication.shared.supportsAlternateIcons else { return false }
         guard UIApplication.shared.alternateIconName != name
