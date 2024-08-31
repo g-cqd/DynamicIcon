@@ -45,3 +45,9 @@ struct ContentView: View {
     }
 }
 ```
+
+## Thanks
+
+- To [Bryce Bostwick](https://github.com/bryce-co) for [AnimatedAppIcons](https://github.com/bryce-co/AnimatedAppIcons) that served as boilerplate for the package code.
+
+
